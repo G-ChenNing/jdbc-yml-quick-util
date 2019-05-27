@@ -1,0 +1,17 @@
+- id : test
+  type : select
+  sqls : 
+        sql1 : 
+             sql : 'select id, code from passenger_bus_order where pay_method = 6'
+             field_names : id,code 
+- id : get_schedule_vehicle_spend
+  type : select
+  sqls :
+      sql1 :
+          sql : 'select id, code from passenger_bus_order where pay_method = ?'
+          params : pay_method
+          field_names : id,code 
+      sql2 :
+          sql : 'select id, code from passenger_bus_order where pay_method = ?'
+          params : pay_method
+          field_names : id,code

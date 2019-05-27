@@ -1,0 +1,6 @@
+- id : testCreate
+  type : delete
+  sqls : 
+       deleteTest :
+          sql : 'delete TEST where id = ?'
+          params : id

@@ -1,0 +1,7 @@
+- id : testCreate
+  type : create
+  sqls : 
+       insertToTest :
+          sql : 'insert into TEST values(?,?)'
+          params : id,name
+ 

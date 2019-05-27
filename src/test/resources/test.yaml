@@ -1,0 +1,39 @@
+- id : test
+  type : select
+  sqls : 
+      getOrder :
+         sql : 'select id, code from passenger_bus_order where pay_method = ?'
+         params : pay_method
+         field_names : id,code 
+ 
+- id : get_schedule_vehicle_spend
+  type : select
+  sqls :
+      orderMsg :
+          sql : 'select id, code from passenger_bus_order where pay_method = ?'
+          params : pay_method
+          field_names : id,code 
+      orderMsg2 :
+          sql : 'select id, code from passenger_bus_order where pay_method = ?'
+          params : pay_method
+          field_names : id,code 
+- id : get_road_bill
+  type : select
+  sqls : 
+      pay_list : 
+          sql: 'select name, price, remarks from schedule_vehicle_spend where bus_schedule_id=? and schedule_vehicle_id=?'
+          params : bus_schedule_id,schedule_vehicle_id
+          field_names : name,price,remarks
+      income_list :
+          sql: 'SELECT name,sum(total) FROM passenger_bus_order as p join config_pay_method as c on p.pay_method = c.id
+                 where bus_schedule_id=? and schedule_vehicle_id = ? GROUP BY pay_method'
+          params : bus_schedule_id,schedule_vehicle_id
+          field_names : income_name,name_total
+      pay_sum:
+          sql: 'select sum(price)  from schedule_vehicle_spend where bus_schedule_id=? and schedule_vehicle_id=?'
+          params : bus_schedule_id,schedule_vehicle_id
+          field_names: pay_sum
+      income_sum:
+          sql: 'select sum(total) from passenger_bus_order where bus_schedule_id=? and schedule_vehicle_id=?'
+          params : bus_schedule_id,schedule_vehicle_id
+          field_names: income_sum

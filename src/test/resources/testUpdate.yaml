@@ -1,0 +1,6 @@
+- id : testUpdate
+  type : update
+  sqls : 
+      updateTest :
+         sql : 'update TEST set id = ? , name = ? limit 1'
+         params : id,name
